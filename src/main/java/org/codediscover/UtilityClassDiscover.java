@@ -21,12 +21,7 @@ public class UtilityClassDiscover {
             @Override
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
                 String methodKey = desc + "#" + name;
-                List<String> currentMethodDependencies = dependencies.get(methodKey);
-                if (currentMethodDependencies == null) {
-                    currentMethodDependencies = new ArrayList<String>();
-                    dependencies.put(methodKey, currentMethodDependencies);
-                }
-                final List<String> finalCurrentMethodDependencies = currentMethodDependencies;
+                final List<String> finalCurrentMethodDependencies = dependencies.computeIfAbsent(methodKey, k -> new ArrayList<String>());
                 return new MethodVisitor(Opcodes.ASM6) {
                     @Override
                     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
