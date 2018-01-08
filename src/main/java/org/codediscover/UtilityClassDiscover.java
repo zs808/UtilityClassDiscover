@@ -16,7 +16,7 @@ public class UtilityClassDiscover {
 
     public static Map<String, List<String>> analysisClassMethodDependencies(byte[] classContent) {
         ClassReader classReader = new ClassReader(classContent);
-        final Map<String, List<String>> dependencies = new HashMap<String, List<String>>();
+        final Map<String, List<String>> dependencies = new HashMap<>();
         classReader.accept(new ClassVisitor(ASM6) {
             @Override
             public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
