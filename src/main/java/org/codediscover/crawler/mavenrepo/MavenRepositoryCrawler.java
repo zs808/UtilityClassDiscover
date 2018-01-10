@@ -1,4 +1,4 @@
-package org.codediscover.crawler;
+package org.codediscover.crawler.mavenrepo;
 
 /**
  * Maven仓库爬虫
@@ -6,4 +6,7 @@ package org.codediscover.crawler;
  * @version 1.0
  */
 public class MavenRepositoryCrawler {
+
+
+
 }
